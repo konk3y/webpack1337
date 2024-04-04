@@ -532,14 +532,14 @@ button {
     transition: opacity 0.2s ease; }
   .header-m {
     position: relative;
-    display: flex;
     justify-content: space-between;
     background-color: #ffffff;
     border-bottom: 1px solid #d9fff5;
     padding-top: 16px;
     padding-bottom: 15px;
     padding-left: 16px;
-    padding-right: 16px; }
+    padding-right: 16px;
+    display: flex; }
   .header-m--active {
     position: relative;
     justify-content: space-between;
