@@ -1,0 +1,33 @@
+@mixin headerm{
+    position: relative;
+    justify-content: space-between;
+    background-color: $white;
+    border-bottom: 1px solid #d9fff5;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+  @mixin modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 440px;
+    height: 100%;
+    background-color: $white;
+    overflow: auto;
+    padding-top: 38px;
+    padding-left: 32px;
+    padding-right: 30px;
+  }
+  
+  @mixin swiper{
+    max-width: 260px;
+    height: 200px;
+    padding-top: 0;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    margin-bottom: 16px;
+  }

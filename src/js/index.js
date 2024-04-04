@@ -123,6 +123,30 @@ document.querySelector('.read-more').addEventListener('click', function () {
 });
 
 
+var bMenu = document.querySelector('.burger');
+var body = document.querySelector('body');
+var overlay = document.querySelector('.overlay');
+var exitButton = document.querySelector('.icon-exit');
+
+// Функция для открытия бургер-меню и показа overlay
+function openMenu() {
+  bMenu.classList.add('burger-menu--active');
+  overlay.classList.add('active');
+  body.classList.add('overflow-hidden');
+}
+
+// Функция для закрытия бургер-меню и скрытия overlay
+function closeMenu() {
+  bMenu.classList.remove('burger-menu--active');
+  overlay.classList.remove('active');
+  body.classList.remove('overflow-hidden');
+}
+
+// Добавляем обработчики событий для открытия/закрытия бургер-меню
+bMenu.addEventListener('click', openMenu);
+exitButton.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
+
 // СЛАЙДЕР СЕКЦИИ ТЕХНИК
 var swiper = new Swiper(".mySwiper__tecnic", {
   slidesPerView: "auto",
