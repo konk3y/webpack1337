@@ -1,3 +1,32 @@
+@font-face {
+    font-family: 'TTLakes';
+    src: local('TTLakes-Bold'),
+      url(./fonts/TT-Lakes-Bold.woff2) format('woff2'),
+      url(./fonts/TT-Lakes-Bold.woff) format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'TTLakes';
+    src: local('TTLakes-Medium'),
+      url(./fonts/TT-Lakes-Medium.woff2) format('woff2'),
+      url(./fonts/TT-Lakes-Medium.woff) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'TTLakes';
+    src: local('TTLakes-Regular'),
+      url(./fonts/TT-Lakes-Regular.woff2) format('woff2'),
+      url(./fonts/TT-Lakes-Regular.woff) format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
 @charset "UTF-8";
 html {
   box-sizing: border-box; }
@@ -8,29 +37,10 @@ html {
   box-sizing: inherit; }
 
 :root {
-  --coral-color: #ff3e79;
   --margin-right: 16px; }
 
-@font-face {
-  font-family: 'TTLakes';
-  src: local("TTLakes-Bold"), url(./fonts/TT-Lakes-Bold.woff2) format("woff2"), url(./fonts/TT-Lakes-Bold.woff) format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap; }
-
-@font-face {
-  font-family: 'TTLakes';
-  src: local("TTLakes-Medium"), url(./fonts/TT-Lakes-Medium.woff2) format("woff2"), url(./fonts/TT-Lakes-Medium.woff) format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap; }
-
-@font-face {
-  font-family: 'TTLakes';
-  src: local("TTLakes-Regular"), url(./fonts/TT-Lakes-Regular.woff2) format("woff2"), url(./fonts/TT-Lakes-Regular.woff) format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap; }
+.overflow-hidden {
+  overflow: hidden; }
 
 body {
   font-family: 'TTLakes', sans-serif;
@@ -68,6 +78,7 @@ p {
   margin: 0;
   padding: 0; }
 
+/* МОДАЛКИ */
 .button-modal {
   background-image: url(./static/rectangle-prices.svg);
   background-repeat: no-repeat;
@@ -188,7 +199,7 @@ p {
 
 .close-modal-btn {
   padding: 10px 20px;
-  background-color: #f44336;
+  background-color: #ff3e79;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -249,6 +260,24 @@ button {
   transform: scale(0.9); }
 
 /* БУРГЕР */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(82, 76, 76, 0.5);
+  /* Прозрачный черный цвет */
+  backdrop-filter: blur(5px);
+  z-index: 1;
+  /* Устанавливаем выше чем бургер-меню, чтобы перекрыть его */
+  display: none;
+  /* По умолчанию скрываем overlay */ }
+
+.overlay.active {
+  display: block;
+  /* Показываем overlay при активации */ }
+
 .burger-menu {
   flex-direction: column;
   justify-content: space-between;
@@ -311,11 +340,11 @@ button {
   height: 32px;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-color: #41f6d7;
+  background-color: #41F6D7;
   transition: all 0.2s ease; }
 
-.burger-menu__items--active:hover::before {
-  background-color: #c7eff7; }
+.burger-menu__items--active:hover {
+  background-color: #41F6D7; }
 
 .address__items:first-child {
   padding-bottom: 18px; }
@@ -345,14 +374,15 @@ button {
   height: 32px;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-color: #c7f7f1; }
+  background-color: #41F6D7; }
 
 .burger-menu__items:active {
   outline: none;
   color: #9c5353; }
 
 .tabs-nav__btn:focus {
-  outline: 2px solid #41f6d7;
+  outline: 2px solid #41F6D7;
+  background-color: #ffffff;
   outline-offset: -1px;
   border-radius: 6px; }
 
@@ -578,7 +608,7 @@ button {
     justify-content: center;
     border-radius: 50px;
     flex-shrink: 0;
-    background-color: var(--coral-color); }
+    background-color: #ff3e79; }
   .header-m__left {
     display: flex; }
   .header-m__right {
@@ -1044,16 +1074,16 @@ button {
     line-height: 143%;
     letter-spacing: 0.2px;
     color: #1b1c21; }
-  .hero-img {
-    object-fit: contain;
-    height: 98%;
-    min-width: 48vw; }
-  .swiper-slide__technic924 {
-    display: flex; }
-  .prices__table {
-    width: 800px; } }
+    .hero__text-n .hero-img {
+      object-fit: contain;
+      height: 98%;
+      min-width: 48vw; }
+    .hero__text-n .swiper-slide__technic924 {
+      display: flex; }
+    .hero__text-n .prices__table {
+      width: 800px; } }
 
-@media (min-width: 1120px) {
+@media (min-width: 924px) and (min-width: 1120px) {
   .services-m__container {
     padding-right: 31px; }
   /* СЛАЙДЕР */
@@ -1068,7 +1098,7 @@ button {
   .footer__item:last-child {
     width: 330px; } }
 
-@media (min-width: 1440px) {
+@media (min-width: 924px) and (min-width: 1440px) {
   main {
     position: relative;
     left: 320px;
